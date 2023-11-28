@@ -6,7 +6,7 @@ class Inventories extends Controller
 
     public function __construct()
     {
-        // Inicializálj egy PDO kapcsolatot az adatbázishoz
+
         $this->db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
         $this->db->exec("set names 'utf8'");
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -22,13 +22,13 @@ class Inventories extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $gepid = $_POST['gepid'];
     
-            // Példa SQL lekérdezés a gép adatainak lekérésére
+
             $stmt = $this->db->prepare('SELECT * FROM gep WHERE id = :gepid');
             $stmt->bindParam(':gepid', $gepid, PDO::PARAM_INT);
             $stmt->execute();
             $data['computers'] = $stmt->fetchAll(PDO::FETCH_OBJ);
     
-            // Példa SQL lekérdezés a géphez tartozó telepített szoftverek lekérésére
+
             $stmt = $this->db->prepare('SELECT sz.nev, sz.kategoria, t.verzio FROM telepites t
                 JOIN szoftver sz ON t.szoftverid = sz.id
                 WHERE t.gepid = :gepid');
@@ -36,7 +36,7 @@ class Inventories extends Controller
             $stmt->execute();
             $installedSoftware = $stmt->fetchAll(PDO::FETCH_OBJ);
     
-            // Csoportosítás név, kategória és verzió alapján
+
             $groupedSoftware = [];
             foreach ($installedSoftware as $software) {
                 $key = $software->nev . '_' . $software->kategoria . '_' . $software->verzio;
