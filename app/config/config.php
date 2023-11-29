@@ -1,9 +1,9 @@
 <?php
 // Database
 define('DB_HOST', 'localhost');
-define('DB_USER', 'szoftverleltar');
-define('DB_PASS', 'szoftverleltar');
-define('DB_NAME', 'szoftverleltar');
+define('DB_USER', 'szoftverleveltar');
+define('DB_PASS', 'szoftverleveltar');
+define('DB_NAME', 'szoftverleveltar');
 
 
 define('APPROOT', dirname(dirname(__FILE__)));

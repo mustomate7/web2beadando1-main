@@ -1,20 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <main role="main" class="container">
     <div class="row">
-        <aside class="col-md-4 blog-sidebar rounded">
-            <div class="p-3 mb-3 rounded d-flex justify-content-center align-items-center">
-                <img width="80%" src="<?php echo URLROOT; ?>img/image-sidebar.jpg" alt="">
-            </div>
-            <div class="p-3">
-                <h4 class="font-italic mb-4">BestSite</h4>
-                <h5>Miért válasszon minket?</h5>
-                <ol class="list-unstyled">
-                    <li>Legjobb ár/érték arány</li>
-                    <li>Leggyorsabb munkavégzés</li>
-                    <li>Olcsó</li>
-                </ol>
-            </div>
-        </aside>
+        <?php require APPROOT . '/views/inc/aside.php'; ?>
 
         <div class="pages-main col-md-8">
             <h1 class="text-center">A cégről</h1>
